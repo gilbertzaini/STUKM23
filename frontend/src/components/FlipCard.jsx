@@ -13,20 +13,18 @@ function FlipCard(){
             <div class="back">
                 <h1>Nama Sponsor</h1>
                 <div class="social-media">
-                    <div class="social-item">
+                    <a class="social-item" href="#">
                         <img src={instagram} alt="Instagram Logo" />
                         <p>username_ig</p>
-                    </div>
-                    <div class="social-item">
+                    </a>
+                    <a class="social-item" href="#">
                         <img src={tiktok} alt="Tiktok Logo" />
                         <p>username_tt</p>
-                    </div>
+                    </a>
                 </div>
-
             </div>
         </div>
         </div>
-
     )
 }
 

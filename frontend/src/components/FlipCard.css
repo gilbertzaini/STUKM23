@@ -1,8 +1,8 @@
 
 .maincontainer{
     position: relative;
-    width: 250px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
     background: none;
     perspective: 1000px;
 }
@@ -59,7 +59,6 @@
     font-style: normal;
 }
 
-
 .back h1{
     font-family: 'El Messiri', sans-serif;
     padding-top: 50px;
@@ -71,7 +70,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .social-item {

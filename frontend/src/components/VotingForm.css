@@ -1,0 +1,72 @@
+.flipContainer {
+  position: relative;
+  width: 65vw;
+  height: 55vh;
+  perspective: 2000px;
+  margin: auto;
+  background: transparent;
+  color: var(--secondary);
+}
+
+.flip {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  background: var(--primary);
+  /* border: 2px solid var(--secondary);
+  border-radius: 12pt; */
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+}
+
+.flipContainer .now {
+  transform: rotateY(180deg);
+}
+
+.formFront,
+.formBack {
+  border-radius: 12pt;
+  background: var(--primary);
+  border: 2px solid var(--secondary);
+  position: absolute;
+  width: 65vw;
+  height: 55vh;
+  backface-visibility: hidden;
+  overflow: hidden;
+  margin: auto;
+}
+
+.formBack {
+  transform: rotateY(180deg);
+}
+
+.votingHeading {
+  color: var(--secondary) !important;
+  text-align: center;
+  font-family: "El Messiri" !important;
+}
+
+.votingLabel {
+  text-align: start;
+  width: 20vw !important;
+}
+
+.votingInput {
+  border: 0px solid transparent !important;
+  border-radius: 0px !important;
+  border-bottom: 1px solid var(--secondary) !important;
+  width: 35vw !important;
+  font-size: 2rem !important;
+}
+
+.votingInput::placeholder {
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+.votingButton {
+  background: var(--secondary) !important;
+  color: var(--primary) !important;
+  height: 3.5rem !important;
+  width: 15rem !important;
+}

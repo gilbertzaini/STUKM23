@@ -1,23 +1,24 @@
-import * as React from 'react'
-
-// 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react'
-import ConnectionTest from './components/connectionTest'
+import * as React from "react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import ConnectionTest from "./components/connectionTest";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Sponsor from './Pages/Sponsor';
+import "./App.css";
+import Sponsor from "./Pages/Sponsor";
+import Index from "./Pages/Index";
 
 function App() {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ConnectionTest />} />
-          <Route path="/sponsor" element={<Sponsor />} />
-        </Routes>
+        <div id="app">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/sponsor" element={<Sponsor />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </ChakraProvider>
-  )
+  );
 }
 
-export default App
+export default App;

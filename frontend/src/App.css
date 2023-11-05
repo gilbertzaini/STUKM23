@@ -1,0 +1,38 @@
+:root {
+    --primary: #F9E0BB;
+    --secondary: #884A39;
+}
+
+@font-face {
+  font-family: "El Messiri";
+  src: url("./assets/font/el-messiri.regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* #app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #884a39 16.77%, #f9e0bb 100%);
+} */
+
+#app {
+  font-family: "El Messiri" !important;
+  background: #f9e0bb;
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+#app::-webkit-scrollbar {
+  display: none;
+}
+
+#app {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,7 +1,7 @@
 .flipContainer {
   position: relative;
   width: 65vw;
-  height: 55vh;
+  height: 65vh;
   perspective: 2000px;
   margin: auto;
   background: transparent;
@@ -29,8 +29,8 @@
   background: var(--primary);
   border: 2px solid var(--secondary);
   position: absolute;
-  width: 65vw;
-  height: 55vh;
+  width: inherit;
+  height: inherit;
   backface-visibility: hidden;
   overflow: hidden;
   margin: auto;
@@ -56,6 +56,7 @@
   border-radius: 0px !important;
   border-bottom: 1px solid var(--secondary) !important;
   width: 35vw !important;
+  height: 100% !important;
   font-size: 2rem !important;
 }
 
@@ -69,4 +70,15 @@
   color: var(--primary) !important;
   height: 3.5rem !important;
   width: 15rem !important;
+}
+
+.ukmHeading {
+  font-family: "El Messiri" !important;
+  font-size: 2.5rem !important;
+}
+
+.ukmWrapper {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

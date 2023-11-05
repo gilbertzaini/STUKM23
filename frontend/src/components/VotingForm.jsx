@@ -4,11 +4,13 @@ import {
   Flex,
   FormLabel,
   Heading,
+  Image,
   Input,
-  Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./VotingForm.css";
+import { fieldList } from "../data/votingFieldList";
+import { ukmList } from "../data/ukm";
 
 const VotingForm = () => {
   const [nama, setNama] = useState("");
@@ -16,73 +18,21 @@ const VotingForm = () => {
   const [email, setEmail] = useState("");
   const [jurusan, setJurusan] = useState("");
   const [angkatan, setAngkatan] = useState("");
-  const [senbud, setSenbud] = useState("");
-  const [sainsos, setSainsos] = useState("");
+  const [ukm, setUkm] = useState("");
   const [olahraga, setOlahraga] = useState("");
+  const [sainsos, setSainsos] = useState("");
+  const [senbud, setSenbud] = useState("");
   const [error, setError] = useState(false);
+
+  const [page, setPage] = useState(0);
   const [flip, setFlip] = useState(false);
   const flipRef = useRef(null);
   const frontArr = [];
   const backArr = [];
 
-  const fieldList = [
-    {
-      pos: "front",
-      label: "Nama",
-      type: "text",
-      name: "nama",
-      placeholder: "",
-    },
-    {
-      pos: "front",
-      label: "NIM",
-      type: "text",
-      name: "nim",
-      placeholder: "",
-    },
-    {
-      pos: "front",
-      label: "Email Student ",
-      type: "email",
-      name: "email",
-      placeholder: "",
-    },
-    {
-      pos: "front",
-      label: "Jurusan",
-      type: "text",
-      name: "jurusan",
-      placeholder: "",
-    },
-    {
-      pos: "front",
-      label: "Angkatan",
-      type: "text",
-      name: "angkatan",
-      placeholder: "",
-    },
-    {
-      pos: "back",
-      label: "Seni & Budaya",
-      type: "text",
-      name: "senbud",
-      placeholder: "",
-    },
-    {
-      pos: "back",
-      label: "Olahraga",
-      type: "text",
-      name: "jurusan",
-      placeholder: "",
-    },
-    {
-      pos: "back",
-      label: "Sains & Sosial",
-      type: "text",
-      name: "sainsos",
-      placeholder: "",
-    },
-  ];
+  const olahragaArr = [];
+  const sainsosArr = [];
+  const senbudArr = [];
 
   fieldList.forEach((field) => {
     const item = (
@@ -101,7 +51,7 @@ const VotingForm = () => {
                 field.name.charAt(0).toUpperCase() + field.name.slice(1);
               eval(`set${targetName}(e.target.value)`);
             }}
-            required
+            required={field.required}
           />
         </Flex>
       </Flex>
@@ -110,40 +60,145 @@ const VotingForm = () => {
     field.pos === "front" ? frontArr.push(item) : backArr.push(item);
   });
 
-  useEffect(() => {
-    console.log(
-      `Nama: ${nama}\n
-      NIM: ${nim}\n
-      Email: ${email}
-      Jurusan: ${jurusan}\n
-      Angkatan: ${angkatan}\n`
+  const handleLogoClick = (kategori, name) => {
+    switch (kategori) {
+      case "olahraga":
+        setOlahraga(name);
+        break;
+      case "sainsos":
+        setSainsos(name);
+        break;
+      case "senbud":
+        setSenbud(name);
+        break;
+      default:
+        break;
+    }
+  };
+
+  ukmList.forEach((ukm) => {
+    const item = (
+      <Button
+        my={5}
+        h={"7rem"}
+        w={"10rem"}
+        bg={"transparent"}
+        _hover={{
+          transform: "scale(1.1)",
+          transition: "all .4s ease-in-out",
+          bg: "transparent",
+        }}
+        onClick={() => {
+          handleLogoClick(ukm.kategori, ukm.name);
+        }}
+        transform={
+          (ukm.kategori === "olahraga" && olahraga === ukm.name) ||
+          (ukm.kategori === "sainsos" && sainsos === ukm.name) ||
+          (ukm.kategori === "senbud" && senbud === ukm.name)
+            ? "scale(1.1)"
+            : "scale(1)"
+        }
+        opacity={
+          (ukm.kategori === "olahraga" &&
+            olahraga !== "" &&
+            olahraga !== ukm.name) ||
+          (ukm.kategori === "sainsos" &&
+            sainsos !== "" &&
+            sainsos !== ukm.name) ||
+          (ukm.kategori === "senbud" && senbud !== "" && senbud !== ukm.name)
+            ? "40%"
+            : "100%"
+        }
+      >
+        <Image
+          src={ukm.path}
+          alt={ukm.name}
+          h={"inherit"}
+          w={"inherit"}
+          objectFit={"scale-down"}
+        />
+      </Button>
     );
-  }, [nama, nim, email, jurusan, angkatan]);
+
+    ukm.kategori === "olahraga"
+      ? olahragaArr.push(item)
+      : ukm.kategori === "sainsos"
+      ? sainsosArr.push(item)
+      : senbudArr.push(item);
+  });
 
   const toggleFlip = () => {
     if (!flip) {
-    //   if (
-    //     nama === "" ||
-    //     nim === "" ||
-    //     email === "" ||
-    //     jurusan === "" ||
-    //     angkatan === ""
-    //   ) {
-    //     setError(true);
-    //   } else {
+      if (
+        nama === "" ||
+        nim === "" ||
+        email === "" ||
+        jurusan === "" ||
+        angkatan === ""
+      ) {
+        setError(true);
+      } else {
         setFlip(true);
+        setPage(1);
         flipRef.current.className = "flip now";
-    //   }
+      }
     } else {
       setFlip(false);
       flipRef.current.className = "flip";
     }
   };
 
+  const changePage = () => {
+    if (page === 1) {
+      if (olahraga !== "") setPage(2);
+    } else if (page === 2) {
+      if (sainsos !== "") setPage(3);
+    }
+  };
+
   const handleVote = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    if (senbud !== "") {
+      console.log(`
+        submitted:\n
+        Nama: ${nama}\n
+        NIM: ${nim}\n
+        Email: ${email}
+        Jurusan: ${jurusan}\n
+        Angkatan: ${angkatan}\n
+        UKM: ${ukm}\n
+        Olahraga: ${olahraga}\n
+        Sainsos: ${sainsos}\n
+        Senbud: ${senbud}
+        `);
+    } else {
+        console.log("isi dlu bg");
+    }
   };
+
+  useEffect(() => {
+    console.log(
+      `Nama: ${nama}\n
+      NIM: ${nim}\n
+      Email: ${email}
+      Jurusan: ${jurusan}\n
+      Angkatan: ${angkatan}\n
+      UKM: ${ukm}
+      `
+    );
+  }, [nama, nim, email, jurusan, angkatan, ukm]);
+
+  useEffect(() => {
+    console.log(
+      `olahraga: ${olahraga}\n
+        sainsos: ${sainsos}\n
+        senbud: ${senbud}`
+    );
+  }, [olahraga, sainsos, senbud]);
+
+  useEffect(() => {
+    console.log(`Page: ${page}`);
+  }, [page]);
 
   return (
     <Box id="votingForm" mt={5}>
@@ -176,6 +231,8 @@ const VotingForm = () => {
                   fontSize={"2rem"}
                   borderRadius={"12px"}
                   alignSelf={"end"}
+                  isDisabled={nama !== "" && nim !== "" && email !== "" && angkatan !== "" && jurusan !== "" ? false : true }
+                  _disabled={{opacity: 0.4}}
                 >
                   Vote Now
                 </Button>
@@ -187,18 +244,62 @@ const VotingForm = () => {
               justify={"center"}
               align={"center"}
             >
-              {backArr}
-              <Flex justify={"center"} align={"center"} mt={5}>
-                <Button
-                  className="votingButton"
-                  type={flip ? "submit" : ""}
-                  fontSize={"2rem"}
-                  borderRadius={"12px"}
-                  mt={5}
-                >
-                  Submit
-                </Button>
-              </Flex>
+              {page === 1 ? (
+                <>
+                  <Heading className="ukmHeading">Olahraga</Heading>
+                  <Flex className="ukmWrapper">{olahragaArr}</Flex>
+                  <Flex justify={"center"} align={"center"} mt={5}>
+                    <Button
+                      className="votingButton"
+                      fontSize={"2rem"}
+                      borderRadius={"12px"}
+                      mt={5}
+                      onClick={changePage}
+                      isDisabled={olahraga !== "" ? false : true}
+                      _disabled={{opacity: 0.4}}
+                    >
+                      Next
+                    </Button>
+                  </Flex>
+                </>
+              ) : page === 2 ? (
+                <>
+                  <Heading className="ukmHeading">Sains & Sosial</Heading>
+                  <Flex className="ukmWrapper">{sainsosArr}</Flex>
+                  <Flex justify={"center"} align={"center"} mt={5}>
+                    <Button
+                      className="votingButton"
+                      fontSize={"2rem"}
+                      borderRadius={"12px"}
+                      mt={5}
+                      onClick={changePage}
+                      isDisabled={sainsos !== "" ? false : true}
+                      _disabled={{opacity: 0.4}}
+                    >
+                      Next
+                    </Button>
+                  </Flex>
+                </>
+              ) : (
+                <>
+                  <Heading className="ukmHeading">Seni & Budaya</Heading>
+                  <Flex className="ukmWrapper">{senbudArr}</Flex>
+                  <Flex justify={"center"} align={"center"} mt={5}>
+                    <Button
+                      display={page === 3 ? "block" : "none"}
+                      className="votingButton"
+                      type="submit"
+                      fontSize={"2rem"}
+                      borderRadius={"12px"}
+                      mt={5}
+                      isDisabled={senbud !== "" ? false : true}
+                      _disabled={{opacity: 0.4}}
+                    >
+                      Submit
+                    </Button>
+                  </Flex>
+                </>
+              )}
             </Flex>
           </Box>
         </Flex>

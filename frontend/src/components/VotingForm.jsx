@@ -11,6 +11,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./VotingForm.css";
 import { fieldList } from "../data/votingFieldList";
 import { ukmList } from "../data/ukm";
+import axios from "axios";
+import back from "../assets/logo/back.svg";
 
 const VotingForm = () => {
   const [nama, setNama] = useState("");
@@ -46,6 +48,7 @@ const VotingForm = () => {
             name={field.name}
             className="votingInput"
             placeholder={field.placeholder}
+            value={eval(field.name)}
             onChange={(e) => {
               const targetName =
                 field.name.charAt(0).toUpperCase() + field.name.slice(1);
@@ -156,9 +159,36 @@ const VotingForm = () => {
     }
   };
 
-  const handleVote = (e) => {
+  const resetState = () => {
+    setNama("");
+    setNim("");
+    setEmail("");
+    setJurusan("");
+    setAngkatan("");
+    setUkm("");
+    setOlahraga("");
+    setSainsos("");
+    setSenbud("");
+    setFlip(false);
+    setPage(0);
+    console.log("resetted");
+  }
+
+  const handleVote = async (e) => {
     e.preventDefault();
     if (senbud !== "") {
+      await axios.post("http://localhost:8888/vote", {
+        nim,
+        email,
+        nama,
+        jurusan,
+        angkatan,
+        ukm,
+        olahraga,
+        sainsos,
+        senbud,
+      });
+
       console.log(`
         submitted:\n
         Nama: ${nama}\n
@@ -171,8 +201,11 @@ const VotingForm = () => {
         Sainsos: ${sainsos}\n
         Senbud: ${senbud}
         `);
+
+        toggleFlip();
+        resetState();
     } else {
-        console.log("isi dlu bg");
+      console.log("isi dlu bg");
     }
   };
 
@@ -231,8 +264,16 @@ const VotingForm = () => {
                   fontSize={"2rem"}
                   borderRadius={"12px"}
                   alignSelf={"end"}
-                  isDisabled={nama !== "" && nim !== "" && email !== "" && angkatan !== "" && jurusan !== "" ? false : true }
-                  _disabled={{opacity: 0.4}}
+                  isDisabled={
+                    nama !== "" &&
+                    nim !== "" &&
+                    email !== "" &&
+                    angkatan !== "" &&
+                    jurusan !== ""
+                      ? false
+                      : true
+                  }
+                  _disabled={{ opacity: 0.4 }}
                 >
                   Vote Now
                 </Button>
@@ -244,6 +285,27 @@ const VotingForm = () => {
               justify={"center"}
               align={"center"}
             >
+              <Button
+                pos={"absolute"}
+                top={"9%"}
+                left={2}
+                bg={"transparent"}
+                _hover={{}}
+                _active={{opacity: 0.5, transform: "scale(0.7)"}}
+                onClick={() => {
+                  if (page === 1) {
+                    toggleFlip();
+                  } else if (page > 1) {
+                    setPage(page - 1);
+                  }
+                }}
+              >
+                <Image 
+                h={"3rem"}
+                w={"auto"}
+                src={back}/>
+              </Button>
+
               {page === 1 ? (
                 <>
                   <Heading className="ukmHeading">Olahraga</Heading>
@@ -256,7 +318,7 @@ const VotingForm = () => {
                       mt={5}
                       onClick={changePage}
                       isDisabled={olahraga !== "" ? false : true}
-                      _disabled={{opacity: 0.4}}
+                      _disabled={{ opacity: 0.4 }}
                     >
                       Next
                     </Button>
@@ -274,7 +336,7 @@ const VotingForm = () => {
                       mt={5}
                       onClick={changePage}
                       isDisabled={sainsos !== "" ? false : true}
-                      _disabled={{opacity: 0.4}}
+                      _disabled={{ opacity: 0.4 }}
                     >
                       Next
                     </Button>
@@ -293,7 +355,7 @@ const VotingForm = () => {
                       borderRadius={"12px"}
                       mt={5}
                       isDisabled={senbud !== "" ? false : true}
-                      _disabled={{opacity: 0.4}}
+                      _disabled={{ opacity: 0.4 }}
                     >
                       Submit
                     </Button>

@@ -1,0 +1,115 @@
+.logo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoAtas img {
+    margin-top: 50px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+@font-face {
+    font-family: 'El-Messiri';
+    src: url('../assets/font/el-messiri.regular.ttf') format('truetype');
+}
+
+.text h1 {
+    justify-content: center;
+    text-align: center;
+    color: #884a39;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-top: 10px;
+}
+
+.text p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #884a39;
+    font-weight: 400;
+    font-size: large;
+    margin-top: 5px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.maknaLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.headerLogo h1 {
+    text-align: center;
+    color: #884a39;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 100px;
+}
+
+.logoMakna {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+.logoMakna img {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.kontenLogo {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 150px;
+}
+
+.atasBox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.atasBox p {
+    color: #884a39;
+    font-weight: 500;
+    font-size: 40px;
+    margin-top: 5px;
+    max-width: 800px;
+    display: flex;
+}
+
+.atasBox img {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+}
+
+.maknaBox {
+    background-color: #884a39;
+    margin-top: 10px;
+    width: 500px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.maknaBox p {
+    color: #F9E0BB;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 60px;
+}

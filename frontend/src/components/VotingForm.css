@@ -118,6 +118,17 @@
   }
 }
 
+@media only screen and (max-width: 600px) and (orientation: landscape){
+  .flipContainer {
+    height: 80vh;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: potrait){
+  .flipContainer {
+    height: 55vh;
+  }
+}
+
 .ukmHeading {
   font-family: "El Messiri" !important;
   font-size: 5vh !important;

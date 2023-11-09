@@ -19,6 +19,8 @@ const VotingForm = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
 
+  const [orientation, setOrientation] = useState(true);
+
   const [nama, setNama] = useState("");
   const [nim, setNim] = useState("");
   const [email, setEmail] = useState("");
@@ -56,6 +58,26 @@ const VotingForm = () => {
   useEffect(() => {
     getLoggedInUser();
     // console.log(loggedInUser);
+  }, []);
+
+  useEffect(() => {
+    if (window.matchMedia("(orientation: portrait)")) {
+      setOrientation(true);
+    } else {
+      setOrientation(false);
+    }
+
+    window
+      .matchMedia("(orientation: portrait)")
+      .addEventListener("change", (e) => {
+        const portrait = e.matches;
+
+        if (portrait) {
+          setOrientation(true);
+        } else {
+          setOrientation(false);
+        }
+      });
   }, []);
 
   fieldList.forEach((field) => {
@@ -279,7 +301,7 @@ const VotingForm = () => {
         </Heading>
         <form onSubmit={handleVote}>
           <Flex justify={"center"} align={"center"} className="flipContainer"
-          h={{base: "45vh", lg:"55vh", xl: "65vh"}}
+          h={{base: "45vh", sm: orientation ? "45vh" : "75vh", lg:"55vh", xl: "70vh"}}
           w={{base: "80vw", xl: "65vw"}}>
             <Box
               ref={flipRef}

@@ -6,7 +6,7 @@ import 'swiper/css'
 
 const UkmCarousel = () => {
   return (
-    <Flex mx={'auto'} width={'75vw'}>
+    <Flex mx={'auto'} width={'75vw'} my={10}>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

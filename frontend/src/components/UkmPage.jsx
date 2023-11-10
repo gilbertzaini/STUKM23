@@ -79,16 +79,18 @@ const UkmPage = () => {
           Sains & Sosial
         </Button>
       </Flex>
-      
-      <UkmCarousel/>
 
-      <Grid templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(5, 1fr)' }} gap={6} mx={20}>
+      <UkmCarousel />
+
+      <Grid templateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(5, 1fr)' }} gap={6} mx={{base:10, lg:20}}>
         {ukmCard.map((ukm) => (
-          <UkmCard
-            key={ukm.name}
-            name={ukm.name}
-            path={ukm.path}
-          />
+          <Box>
+            <UkmCard
+              key={ukm.name}
+              name={ukm.name}
+              path={ukm.path}
+            />
+          </Box>
         ))}
       </Grid>
       <Box my={10}>

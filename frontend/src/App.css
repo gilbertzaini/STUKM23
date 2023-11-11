@@ -25,7 +25,8 @@
   background: #f9e0bb;
   min-height: 100vh;
   width: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #app::-webkit-scrollbar {

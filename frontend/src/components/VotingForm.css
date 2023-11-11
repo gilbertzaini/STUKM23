@@ -49,7 +49,7 @@
 .votingLabel {
   text-align: start;
   width: 20vw !important;
-  font-size: 3.5vh !important;
+  /* font-size: 3.5vh !important; */
 }
 
 .votingInput {
@@ -58,36 +58,38 @@
   border-bottom: 1px solid var(--secondary) !important;
   width: 35vw !important;
   height: 100% !important;
-  font-size: 3.5vh !important;
+  /* font-size: 3.5vh !important; */
 }
 
 .votingInput::placeholder {
-  color: var(--primary);
-  font-size: 3.5vh !important;
+  color: var(--secondary);
+  /* font-size: 3.5vh !important; */
 }
 
 .votingButton {
+  position: absolute !important;
+  bottom: 5% !important; 
   background: var(--secondary) !important;
   color: var(--primary) !important;
-  height: 7vh !important;
-  width: 15vw !important;
-  font-size: 3.5vh !important;
+  height: 6vh !important;
+  width: 10vw !important;
+  font-size: 2rem !important;
 }
 
 @media only screen and (max-width: 1080px) {
   .votingLabel {
-    font-size: 2.2vh !important;
+    /* font-size: 2.2vh !important; */
     width: 25vw !important;
   }
 
   .votingInput {
-    font-size: 2.2vh !important;
+    /* font-size: 2.2vh !important; */
     width: 45vw !important;
   }
 
-  .votingInput::placeholder {
+  /* .votingInput::placeholder {
     font-size: 2vh !important;
-  }
+  } */
 
   .votingButton {
     height: 4vh !important;
@@ -98,40 +100,31 @@
 
 @media only screen and (max-width: 600px) {
   .votingLabel {
-    font-size: 1.5vh !important;
+    /* font-size: 0.9rem !important; */
     width: 25vw !important;
   }
 
   .votingInput {
-    font-size: 1.5vh !important;
+    /* font-size: 0.9rem !important; */
     width: 40vw !important;
   }
 
-  .votingInput::placeholder {
+  /* .votingInput::placeholder {
     font-size: 1.5vh !important;
-  }
+  } */
 
   .votingButton {
-    height: 4vh !important;
+    height: 2rem !important;
     width: 25vw !important;
-    font-size: 1.5vh !important;
-  }
-}
-
-@media only screen and (max-width: 600px) and (orientation: landscape){
-  .flipContainer {
-    height: 80vh;
-  }
-}
-@media only screen and (max-width: 600px) and (orientation: potrait){
-  .flipContainer {
-    height: 55vh;
+    font-size: 0.9rem !important;
   }
 }
 
 .ukmHeading {
+  position: absolute;
+  top: 11.5%;
   font-family: "El Messiri" !important;
-  font-size: 5vh !important;
+  /* font-size: 5vh !important; */
 }
 
 .ukmWrapper {

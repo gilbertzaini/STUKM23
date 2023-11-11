@@ -42,6 +42,11 @@ const VotingForm = () => {
   const sainsosArr = [];
   const senbudArr = [];
 
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [nimCheck, setNimCheck] = useState(false);
+  const emailRegex = /^[^\s@]+@student\.umn\.ac\.id$/;
+  const nimRegex = /^000000\d{5}$|^00000\d{6}$/;
+
   const getLoggedInUser = async () => {
     try {
       const response = await axios.get("http://localhost:8888/logged-in-user");
@@ -80,28 +85,70 @@ const VotingForm = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (orientation) console.log("potrait");
+    else console.log("landscape");
+  }, [orientation]);
+
   fieldList.forEach((field) => {
     const item = (
-      <Flex direction={"column"}>
+      <Flex direction={"column"} display={page === 0 ? "block" : "none"}>
         <Flex
           dir={{ base: "column", xl: "row" }}
           justifyContent={"center"}
           alignItems={"center"}
           my={3}
         >
-          <FormLabel className="votingLabel" my={"auto"}>
+          <FormLabel
+            className="votingLabel"
+            my={"auto"}
+            fontSize={{
+              base: "0.9rem",
+              sm: orientation ? "1.2rem" : "0.7rem",
+              lg: "1.3rem",
+              xl: "2rem",
+            }}
+          >
             {field.label}
           </FormLabel>
           <Input
+            fontSize={{
+              base: "0.9rem",
+              sm: orientation ? "1.2rem" : "0.7rem",
+              lg: "1.3rem",
+              xl: "2rem",
+            }}
             type={field.type}
             name={field.name}
             className="votingInput"
             placeholder={field.placeholder}
-            value={eval(field.name)}
+            value={
+              field.name === "nama"
+                ? nama
+                : field.name === "nim"
+                ? nim
+                : field.name === "email"
+                ? email
+                : field.name === "jurusan"
+                ? jurusan
+                : field.name === "angkatan"
+                ? angkatan
+                : ukm
+            }
             onChange={(e) => {
-              const targetName =
-                field.name.charAt(0).toUpperCase() + field.name.slice(1);
-              eval(`set${targetName}(e.target.value)`);
+              const value = e.target.value;
+              if (field.name === "nama") setNama(value);
+              else if (field.name === "nim") {
+                setNim(value);
+                if (nimRegex.test(value) || value === "") setNimCheck(true);
+                else setNimCheck(false);
+              } else if (field.name === "email") {
+                setEmail(value);
+                if (emailRegex.test(value) || value === "") setEmailCheck(true);
+                else setEmailCheck(false);
+              } else if (field.name === "jurusan") setJurusan(value);
+              else if (field.name === "angkatan") setAngkatan(value);
+              else setUkm(value);
             }}
             required={field.required}
           />
@@ -132,8 +179,8 @@ const VotingForm = () => {
     const item = (
       <Button
         my={5}
-        h={"7rem"}
-        w={"10rem"}
+        h={{ base: "6vh", lg: "5rem", xl: "7rem" }}
+        w={{ base: "auto", lg: "8rem", xl: "10rem" }}
         bg={"transparent"}
         _hover={{
           transform: "scale(1.1)",
@@ -191,7 +238,9 @@ const VotingForm = () => {
         // setError(true);
       } else {
         setFlip(true);
-        setPage(1);
+        setTimeout(() => {
+          setPage(1);
+        }, 100);
         flipRef.current.className = "flip now";
       }
     } else {
@@ -255,6 +304,9 @@ const VotingForm = () => {
 
         toggleFlip();
         resetState();
+        setTimeout(() => {
+          getLoggedInUser();
+        }, 100);
       } else {
         console.log("isi dlu bg");
       }
@@ -263,17 +315,17 @@ const VotingForm = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(
-  //     `Nama: ${nama}\n
-  //     NIM: ${nim}\n
-  //     Email: ${email}
-  //     Jurusan: ${jurusan}\n
-  //     Angkatan: ${angkatan}\n
-  //     UKM: ${ukm}
-  //     `
-  //   );
-  // }, [nama, nim, email, jurusan, angkatan, ukm]);
+  useEffect(() => {
+    console.log(
+      `Nama: ${nama}\n
+      NIM: ${nim}\n
+      Email: ${email}
+      Jurusan: ${jurusan}\n
+      Angkatan: ${angkatan}\n
+      UKM: ${ukm}
+      `
+    );
+  }, [nama, nim, email, jurusan, angkatan, ukm]);
 
   // useEffect(() => {
   //   console.log(
@@ -285,9 +337,9 @@ const VotingForm = () => {
   //   getLoggedInUser();
   // }, [olahraga, sainsos, senbud]);
 
-  // useEffect(() => {
-  //   console.log(`Page: ${page}`);
-  // }, [page]);
+  useEffect(() => {
+    console.log(`Page: ${page}`);
+  }, [page]);
 
   // useEffect(() => {
   //   console.log(`loggedInUser: ${loggedInUser.userId} - ${loggedInUser.nama}`);
@@ -296,13 +348,26 @@ const VotingForm = () => {
   return (
     <Flex justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
       <Box id="votingForm" mt={"-5%"} display={loggedIn ? "none" : "block"}>
-        <Heading className="votingHeading" py={3} fontSize={{base: "3vh", xl:"6vh"}}>
+        <Heading
+          className="votingHeading"
+          py={3}
+          fontSize={{ base: "3vh", xl: "6vh" }}
+        >
           Who is the best?
         </Heading>
         <form onSubmit={handleVote}>
-          <Flex justify={"center"} align={"center"} className="flipContainer"
-          h={{base: "45vh", sm: orientation ? "45vh" : "75vh", lg:"55vh", xl: "70vh"}}
-          w={{base: "80vw", xl: "65vw"}}>
+          <Flex
+            justify={"center"}
+            align={"center"}
+            className="flipContainer"
+            h={{
+              base: "35rem",
+              sm: orientation ? "30rem" : "20rem",
+              lg: "55vh",
+              xl: "70vh",
+            }}
+            w={{ base: "80vw", xl: "65vw" }}
+          >
             <Box
               ref={flipRef}
               className="flip"
@@ -328,8 +393,8 @@ const VotingForm = () => {
                     alignSelf={"end"}
                     isDisabled={
                       nama !== "" &&
-                      nim !== "" &&
-                      email !== "" &&
+                      nimCheck &&
+                      emailCheck &&
                       angkatan !== "" &&
                       jurusan !== ""
                         ? false
@@ -357,17 +422,27 @@ const VotingForm = () => {
                   onClick={() => {
                     if (page === 1) {
                       toggleFlip();
+                      setPage(0);
                     } else if (page > 1) {
                       setPage(page - 1);
                     }
                   }}
                 >
-                  <Image h={"3rem"} w={"auto"} src={back} />
+                  <Image
+                    h={{ base: "1.5rem", xl: "3rem" }}
+                    w={"auto"}
+                    src={back}
+                  />
                 </Button>
 
                 {page === 1 ? (
                   <>
-                    <Heading className="ukmHeading">Olahraga</Heading>
+                    <Heading
+                      className="ukmHeading"
+                      fontSize={{ base: "2vh", lg: "4vh", xl: "6vh" }}
+                    >
+                      Olahraga
+                    </Heading>
                     <Flex className="ukmWrapper">{olahragaArr}</Flex>
                     <Flex justify={"center"} align={"center"} mt={5}>
                       <Button
@@ -384,7 +459,12 @@ const VotingForm = () => {
                   </>
                 ) : page === 2 ? (
                   <>
-                    <Heading className="ukmHeading">Sains & Sosial</Heading>
+                    <Heading
+                      className="ukmHeading"
+                      fontSize={{ base: "2vh", lg: "4vh", xl: "6vh" }}
+                    >
+                      Sains & Sosial
+                    </Heading>
                     <Flex className="ukmWrapper">{sainsosArr}</Flex>
                     <Flex justify={"center"} align={"center"} mt={5}>
                       <Button
@@ -401,7 +481,12 @@ const VotingForm = () => {
                   </>
                 ) : (
                   <>
-                    <Heading className="ukmHeading">Seni & Budaya</Heading>
+                    <Heading
+                      className="ukmHeading"
+                      fontSize={{ base: "2vh", lg: "4vh", xl: "6vh" }}
+                    >
+                      Seni & Budaya
+                    </Heading>
                     <Flex className="ukmWrapper">{senbudArr}</Flex>
                     <Flex justify={"center"} align={"center"} mt={5}>
                       <Button
@@ -424,10 +509,16 @@ const VotingForm = () => {
         </form>
       </Box>
 
-      <Flex className="votedContainer" display={loggedIn ? "block" : "none"} h={{base: "25vh", xl: "65vh"}}
-      w={{base: "80vw", xl: "65vw"}}>
+      <Flex
+        className="votedContainer"
+        display={loggedIn ? "block" : "none"}
+        h={{ base: "45vh", lg: "65vh" }}
+        w={{ base: "80vw", lg: "65vw" }}
+      >
         <Flex justify={"center"} align={"center"} h={"100%"} my={"auto"}>
-          <Text textAlign={"center"} fontSize={{base: "3vh", xl: "5vh"}}>Terima kasih telah memilih</Text>
+          <Text textAlign={"center"} fontSize={{ base: "3vh", lg: "5vh" }}>
+            Terima kasih telah memilih
+          </Text>
         </Flex>
       </Flex>
     </Flex>

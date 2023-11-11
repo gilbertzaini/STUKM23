@@ -12,7 +12,7 @@ export const fieldList = [
       label: "NIM*",
       type: "text",
       name: "nim",
-      placeholder: "",
+      placeholder: "00000XXXXXX",
       required: true,
     },
     {
@@ -20,7 +20,7 @@ export const fieldList = [
       label: "Email Student*",
       type: "email",
       name: "email",
-      placeholder: "",
+      placeholder: "...@student.umn.ac.id",
       required: true,
     },
     {
@@ -44,7 +44,7 @@ export const fieldList = [
       label: "UKM",
       type: "text",
       name: "ukm",
-      placeholder: "",
+      placeholder: "Masukkan UKM yang diikuti *jika ada",
       required: false,
     },
     {

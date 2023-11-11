@@ -69,10 +69,10 @@ export const postVote = async (req, res) => {
                   Session created for: ${nama}`);
 
       return res.status(201).json(`User Created: ${newUser}\n
-                            Vote Created: ${newVote}`);
+                                  Vote Created: ${newVote}`);
 
     } else {
-      console.log(`User has voted: ${existingUser}`);
+      console.log(`\n\nUser has voted: ${existingUser}\n\n`);
       const rememberMeToken = uuid();
 
       res.cookie("rememberMe", rememberMeToken, {

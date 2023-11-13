@@ -6,7 +6,7 @@ const {DataTypes} = Sequelize;
 const User = db.define('user', {
     userId: {type: DataTypes.STRING, primaryKey: true, unique: true},
     nim: {type: DataTypes.STRING, unique: true, allowNull:false},
-    email: {type: DataTypes.STRING, unique: true, allowNull:false},
+    // email: {type: DataTypes.STRING, unique: true, allowNull:false},
     nama: {type: DataTypes.STRING, allowNull:false},
     jurusan: {type: DataTypes.STRING, allowNull:false},
     angkatan: {type: DataTypes.STRING, allowNull:false},
@@ -17,6 +17,6 @@ const User = db.define('user', {
 
 export default User;
 
-// (async()=>{
-//     await db.sync();
-// })();
+(async()=>{
+    await db.sync();
+})();

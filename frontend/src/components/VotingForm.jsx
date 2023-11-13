@@ -23,7 +23,7 @@ const VotingForm = () => {
 
   const [nama, setNama] = useState("");
   const [nim, setNim] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [jurusan, setJurusan] = useState("");
   const [angkatan, setAngkatan] = useState("");
   const [ukm, setUkm] = useState("");
@@ -42,9 +42,9 @@ const VotingForm = () => {
   const sainsosArr = [];
   const senbudArr = [];
 
-  const [emailCheck, setEmailCheck] = useState(false);
+  // const [emailCheck, setEmailCheck] = useState(false);
   const [nimCheck, setNimCheck] = useState(false);
-  const emailRegex = /^[^\s@]+@student\.umn\.ac\.id$/;
+  // const emailRegex = /^[^\s@]+@student\.umn\.ac\.id$/;
   const nimRegex = /^000000\d{5}$|^00000\d{6}$/;
 
   const getLoggedInUser = async () => {
@@ -127,8 +127,8 @@ const VotingForm = () => {
                 ? nama
                 : field.name === "nim"
                 ? nim
-                : field.name === "email"
-                ? email
+                // : field.name === "email"
+                // ? email
                 : field.name === "jurusan"
                 ? jurusan
                 : field.name === "angkatan"
@@ -142,15 +142,16 @@ const VotingForm = () => {
                 setNim(value);
                 if (nimRegex.test(value) || value === "") setNimCheck(true);
                 else setNimCheck(false);
-              } else if (field.name === "email") {
-                setEmail(value);
-                if (emailRegex.test(value) || value === "") setEmailCheck(true);
-                else setEmailCheck(false);
+              // } else if (field.name === "email") {
+              //   setEmail(value);
+              //   if (emailRegex.test(value) || value === "") setEmailCheck(true);
+              //   else setEmailCheck(false);
               } else if (field.name === "jurusan") setJurusan(value);
               else if (field.name === "angkatan") setAngkatan(value);
               else setUkm(value);
             }}
             required={field.required}
+            autoComplete="off"
           />
         </Flex>
       </Flex>
@@ -231,7 +232,7 @@ const VotingForm = () => {
       if (
         nama === "" ||
         nim === "" ||
-        email === "" ||
+        // email === "" ||
         jurusan === "" ||
         angkatan === ""
       ) {
@@ -260,7 +261,7 @@ const VotingForm = () => {
   const resetState = () => {
     setNama("");
     setNim("");
-    setEmail("");
+    // setEmail("");
     setJurusan("");
     setAngkatan("");
     setUkm("");
@@ -269,6 +270,8 @@ const VotingForm = () => {
     setSenbud("");
     setFlip(false);
     setPage(0);
+    setNimCheck(false);
+    // setEmailCheck(false);
     // console.log("resetted");
   };
 
@@ -279,7 +282,7 @@ const VotingForm = () => {
       if (senbud !== "") {
         await axios.post("http://localhost:8888/vote", {
           nim,
-          email,
+          // email,
           nama,
           jurusan,
           angkatan,
@@ -293,7 +296,6 @@ const VotingForm = () => {
           submitted:\n
           Nama: ${nama}\n
           NIM: ${nim}\n
-          Email: ${email}
           Jurusan: ${jurusan}\n
           Angkatan: ${angkatan}\n
           UKM: ${ukm}\n
@@ -319,31 +321,30 @@ const VotingForm = () => {
     console.log(
       `Nama: ${nama}\n
       NIM: ${nim}\n
-      Email: ${email}
       Jurusan: ${jurusan}\n
       Angkatan: ${angkatan}\n
       UKM: ${ukm}
       `
     );
-  }, [nama, nim, email, jurusan, angkatan, ukm]);
+  }, [nama, nim, jurusan, angkatan, ukm]);
 
-  // useEffect(() => {
-  //   console.log(
-  //     `olahraga: ${olahraga}\n
-  //       sainsos: ${sainsos}\n
-  //       senbud: ${senbud}`
-  //   );
+  useEffect(() => {
+    console.log(
+      `olahraga: ${olahraga}\n
+        sainsos: ${sainsos}\n
+        senbud: ${senbud}`
+    );
 
-  //   getLoggedInUser();
-  // }, [olahraga, sainsos, senbud]);
+    getLoggedInUser();
+  }, [olahraga, sainsos, senbud]);
 
   useEffect(() => {
     console.log(`Page: ${page}`);
   }, [page]);
 
-  // useEffect(() => {
-  //   console.log(`loggedInUser: ${loggedInUser.userId} - ${loggedInUser.nama}`);
-  // }, [loggedInUser]);
+  useEffect(() => {
+    console.log(`loggedInUser: ${loggedInUser.userId} - ${loggedInUser.nama}`);
+  }, [loggedInUser]);
 
   return (
     <Flex justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
@@ -363,8 +364,8 @@ const VotingForm = () => {
             h={{
               base: "35rem",
               sm: orientation ? "30rem" : "20rem",
-              lg: "55vh",
-              xl: "70vh",
+              lg: "65vh",
+              xl: "80vh",
             }}
             w={{ base: "80vw", xl: "65vw" }}
           >
@@ -394,7 +395,7 @@ const VotingForm = () => {
                     isDisabled={
                       nama !== "" &&
                       nimCheck &&
-                      emailCheck &&
+                      // emailCheck &&
                       angkatan !== "" &&
                       jurusan !== ""
                         ? false

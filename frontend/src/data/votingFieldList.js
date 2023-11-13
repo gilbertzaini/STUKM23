@@ -15,14 +15,14 @@ export const fieldList = [
       placeholder: "00000XXXXXX",
       required: true,
     },
-    {
-      pos: "front",
-      label: "Email Student*",
-      type: "email",
-      name: "email",
-      placeholder: "...@student.umn.ac.id",
-      required: true,
-    },
+    // {
+    //   pos: "front",
+    //   label: "Email Student*",
+    //   type: "email",
+    //   name: "email",
+    //   placeholder: "...@student.umn.ac.id",
+    //   required: true,
+    // },
     {
       pos: "front",
       label: "Jurusan*",

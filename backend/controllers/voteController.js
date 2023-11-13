@@ -13,11 +13,11 @@ export const getVote = async (req, res) => {
 };
 
 export const postVote = async (req, res) => {
-  try {
+  // try {
     const {
       nama,
       nim,
-      email,
+      // email,
       jurusan,
       angkatan,
       ukm,
@@ -30,8 +30,7 @@ export const postVote = async (req, res) => {
 
     const existingUser = await User.findOne({
       where: {
-        nim: nim,
-        email: email,
+        nim: nim
       },
     });
 
@@ -40,7 +39,7 @@ export const postVote = async (req, res) => {
         userId: userId,
         nama,
         nim,
-        email,
+        // email,
         jurusan,
         angkatan,
         ukm,
@@ -86,7 +85,7 @@ export const postVote = async (req, res) => {
       console.log(`Session created for: ${existingUser}`);
       return res.status(202).json(`Logged In: ${existingUser}`);
     }
-  } catch (e) {
-    console.log(e.message);
-  }
+  // } catch (e) {
+  //   console.log(e.message);
+  // }
 };

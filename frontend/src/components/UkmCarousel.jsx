@@ -1,10 +1,8 @@
 import React from 'react'
 import { Flex, Image } from '@chakra-ui/react'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-import paimon from '../assets/image/paimon.png'
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import carousel from '../assets/image/carousel.png'
-import { Box } from '@chakra-ui/react'
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

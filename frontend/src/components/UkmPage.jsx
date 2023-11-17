@@ -15,22 +15,30 @@ const UkmPage = () => {
   const sainsosData = [];
 
   for (const property in ukmList) {
+    const match = (ukmList[property].instagram).match(/instagram\.com\/([a-zA-Z0-9_]+)/);
+    const username = match ? match[1] : null;
     if (ukmList[property].kategori === 'senbud') {
       const senbudItem = {
         name: ukmList[property].name,
         path: ukmList[property].path,
+        instagram: ukmList[property].instagram,
+        instagram_user: username
       };
       senbudData.push(senbudItem);
     } else if (ukmList[property].kategori === 'olahraga') {
       const olahragaItem = {
         name: ukmList[property].name,
         path: ukmList[property].path,
+        instagram: ukmList[property].instagram,
+        instagram_user: username
       };
       olahragaData.push(olahragaItem);
     } else {
       const sainsosItem = {
         name: ukmList[property].name,
         path: ukmList[property].path,
+        instagram: ukmList[property].instagram,
+        instagram_user: username
       };
       sainsosData.push(sainsosItem);
     }
@@ -100,6 +108,8 @@ const UkmPage = () => {
               key={ukm.name}
               name={ukm.name}
               path={ukm.path}
+              instagram={ukm.instagram}
+              instagram_user={ukm.instagram_user}
             />
           </Box>
         ))}

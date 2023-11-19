@@ -1,25 +1,22 @@
 import "./FlipCard.css";
-import paimon from "../assets/image/paimon.png";
-import instagram from "../assets/logo/instagram.svg";
-import tiktok from "../assets/logo/tiktok.svg";
 
-function FlipCard(){
+const FlipCard= (props) =>{
     return(
         <div class="maincontainer">
         <div class="card">
             <div class="front">
-                <img src={paimon} />
+                <img src={props.sponsor.logo} />
             </div>
             <div class="back">
-                <h1>Nama Sponsor</h1>
+                <h1>{props.sponsor.nama}</h1>
                 <div class="social-media">
-                    <a class="social-item" href="#">
-                        <img src={instagram} alt="Instagram Logo" />
-                        <p>username_ig</p>
+                    <a class="social-item" href={props.sponsor.linksosmed1}>
+                        <img src={props.sponsor.logososmed1} alt="Logo Sosmed1"/>
+                        <p>{props.sponsor.sosmed1}</p>
                     </a>
-                    <a class="social-item" href="#">
-                        <img src={tiktok} alt="Tiktok Logo" />
-                        <p>username_tt</p>
+                    <a class="social-item" href={props.sponsor.linksosmed2}>
+                        <img src={props.sponsor.logososmed2} alt="Logo Sosmed2"/>
+                        <p>{props.sponsor.sosmed2}</p>
                     </a>
                 </div>
             </div>

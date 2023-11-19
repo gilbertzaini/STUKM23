@@ -59,8 +59,10 @@
 }
 
 .logoMakna img {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .kontenLogo {
@@ -112,4 +114,52 @@
     font-weight: 400;
     font-size: 20px;
     padding: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .logoMakna {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .kontenLogo {
+        align-items: center;
+        margin-top: 20px;
+        text-align: center;
+        justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .logoSTUKM {
+        margin-bottom: 20px;
+        width: 300px;
+    }
+
+    .maknaBox {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        max-width: 350px;
+        margin-right: 150px;
+    }
+
+    .maknaBox p {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .atasBox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        margin-right: 140px;
+    }
+
+    .atasBox p {
+        font-size: 28px;
+    }
 }

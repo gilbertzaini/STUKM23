@@ -15,6 +15,6 @@ const Vote = db.define('vote', {
 
 export default Vote;
 
-// (async()=>{
-//     await db.sync();
-// })();
+(async()=>{
+    await db.sync();
+})();

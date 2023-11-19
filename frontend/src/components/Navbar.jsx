@@ -1,13 +1,15 @@
 import STUKM23 from "../assets/logo/STUKM23.png";
 import tiktok from '../assets/logo/tiktok.svg';
 
+import './Navbar.css';
+
 const Navbar = () => {
     return (
         <>
             <div className="navbar">
                 <div className="container">
                     <div className="box-logo">
-                        <img className="logo-stukm" src={tiktok} alt="" />
+                        <img className="logo-stukm" src={STUKM23} alt="" />
                         <a className="text-stukm">STUKM 2023</a>
                     </div>
                     <div className="box-option">

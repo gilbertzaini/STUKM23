@@ -1,7 +1,12 @@
 import "./Sponsor.css";
 import FlipCard from "../components/FlipCard";
+import {sponsorList} from "../data/sponsorlist";
 
-function Sponsor(){
+const Sponsor = () =>{
+    const firstSponsor = sponsorList[0];
+    const secondSponsor = sponsorList[1];
+    const thirdSponsor = sponsorList[2];
+
     return(
         <div class="container">
             <div class="title">
@@ -9,18 +14,10 @@ function Sponsor(){
             </div>
             
             <div class="sponsor">
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-                <FlipCard />
-            </div>
-
-            
+                <FlipCard sponsor={firstSponsor}/>
+                <FlipCard sponsor={secondSponsor}/>
+                <FlipCard sponsor={thirdSponsor}/>
+            </div>   
         </div>
     )
 }

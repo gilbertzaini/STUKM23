@@ -40,15 +40,17 @@ function Logo() {
                 <div class="headerLogo">
                     <h1>Makna Logo</h1>
                     <div class="logoMakna">
-                        <img src={STUKM23} />
+                        <div class="logoSTUKM">
+                            <img src={STUKM23} />
+                        </div>  
                         <div class="kontenLogo">
                             <div class="atasBox">
                                 {judulMakna > 0 && (
-                                    <img src={prevButton} alt="Previous Button" onClick={handlePrevButtonClick} />
+                                    <img src={prevButton} alt="Previous Button" onClick={handlePrevButtonClick} class="prevButton" />
                                 )}
                                 <p>{arrayJudul[judulMakna]}</p>
                                 {judulMakna < arrayJudul.length-1 && (
-                                    <img src={nextButton} alt="Next Button" onClick={handleNextButtonClick}/>
+                                    <img src={nextButton} alt="Next Button" onClick={handleNextButtonClick} class="nextButton" />
                                 )}
                             </div>
                             <div class="maknaBox">

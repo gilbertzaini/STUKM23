@@ -99,7 +99,7 @@ const UkmPage = () => {
         </Button>
       </Flex>
 
-      <UkmCarousel />
+      <UkmCarousel ukmType = {ukm} />
 
       <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', xl: 'repeat(5, 1fr)' }} gap={6} mx={{ base: 10, lg: 20 }}>
         {ukmCard.map((ukm) => (

@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Flex, Spacer } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
-import { Grid } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import { ukmList } from "../data/ukm";
 import UkmCard from "./UkmCard";
 import UkmCarousel from "./UkmCarousel";
+import gorden_kiri from "../assets/image/gorden_kiri.png"
+import gorden_kanan from "../assets/image/gorden_kanan.png"
 
 const UkmPage = () => {
   const [ukm, setUkm] = useState("senbud");
@@ -64,14 +67,16 @@ const UkmPage = () => {
   return (
     <Box mt={'2rem'}>
       <Box className="observed">
+        <Image src={gorden_kiri} top={0} height={'100vh'} left={0} position={'absolute'} />
+        <Image src={gorden_kanan} top={0} height={'100vh'} right={0} position={'absolute'} />
         <Flex
-          width={"75vw"}
+          width={"60vw"}
           mx={"auto"}
-          flexDirection={{ base: "column", md: "row" }}
+          flexDirection={{ base: "column", xl: "row" }}
         >
           <Button
             variant={"ghost"}
-            fontSize={"2rem"}
+            fontSize={{base:'1rem', md: "2rem"}}
             textDecoration={ukm === "senbud" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -84,7 +89,7 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={"2rem"}
+            fontSize={{base:'1rem', md: "2rem"}}
             textDecoration={ukm === "olahraga" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -97,7 +102,7 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={"2rem"}
+            fontSize={{base:'1rem', md: "2rem"}}
             textDecoration={ukm === "sainsos" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -123,7 +128,7 @@ const UkmPage = () => {
         mx={{ base: 10, lg: 20 }}
       >
         {ukmCard.map((ukm) => (
-          <Box>
+          <GridItem>
             <UkmCard
               key={ukm.name}
               name={ukm.name}
@@ -131,12 +136,12 @@ const UkmPage = () => {
               instagram={ukm.instagram}
               instagram_user={ukm.instagram_user}
             />
-          </Box>
+          </GridItem>
         ))}
       </Grid>
       <Box my={'1rem'}></Box>
     </Box>
-    
+
   );
 };
 

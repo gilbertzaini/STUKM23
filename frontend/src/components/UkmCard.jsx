@@ -12,7 +12,7 @@ const UkmCard = (props) => {
     <Box className='containerBox'>
       <Card
         className='containerCard'
-        height={{ base: "30vh", md: "28vh", xl: "42vh" }}
+        height={{ base: "30vh", md: "28vh", xl: "40vh" }}
         backgroundColor={'#FFC26F'}
         boxShadow={'lg'}
         border={'1px'}

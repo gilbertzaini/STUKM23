@@ -44,6 +44,9 @@ const VotingForm = () => {
 
   // const [emailCheck, setEmailCheck] = useState(false);
   const [nimCheck, setNimCheck] = useState(false);
+  const [angkatanCheck, setAngkatanCheck] = useState(false);
+  const [jurusanCheck, setJurusanCheck] = useState(false);
+
   // const emailRegex = /^[^\s@]+@student\.umn\.ac\.id$/;
   const nimRegex = /^000000\d{5}$|^00000\d{6}$/;
 
@@ -347,7 +350,7 @@ const VotingForm = () => {
   }, [loggedInUser]);
 
   return (
-    <Flex justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
+    <Flex className="observed" justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
       <Box id="votingForm" mt={"-5%"} display={loggedIn ? "none" : "block"}>
         <Heading
           className="votingHeading"
@@ -365,7 +368,7 @@ const VotingForm = () => {
               base: "35rem",
               sm: orientation ? "30rem" : "20rem",
               lg: "65vh",
-              xl: "80vh",
+              xl: "75vh",
             }}
             w={{ base: "80vw", xl: "65vw" }}
           >

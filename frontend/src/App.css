@@ -1,6 +1,6 @@
 :root {
-    --primary: #F9E0BB;
-    --secondary: #884A39;
+  --primary: #f9e0bb;
+  --secondary: #884a39;
 }
 
 @font-face {
@@ -36,4 +36,15 @@
 #app {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.observed {
+  min-height: 100vh;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.showSection {
+  opacity: 1;
+  transition: 0.5s ease;
 }

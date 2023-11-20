@@ -1,12 +1,16 @@
-import React from 'react'
-import UkmPage from '../components/UkmPage'
+import React from "react";
+import UkmPage from "../components/UkmPage";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Ukm = () => {
   return (
     <div>
-    <UkmPage />
+      <Navbar />
+      <UkmPage />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Ukm
+export default Ukm;

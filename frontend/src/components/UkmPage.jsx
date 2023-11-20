@@ -65,14 +65,15 @@ const UkmPage = () => {
   }, []);
 
   return (
-    <Box mt={'2rem'}>
-      <Box className="observed">
+    <Box>
+      <Box className="observed gradientBg">
         <Image src={gorden_kiri} top={0} height={'100vh'} left={0} position={'absolute'} />
         <Image src={gorden_kanan} top={0} height={'100vh'} right={0} position={'absolute'} />
         <Flex
           width={"60vw"}
           mx={"auto"}
           flexDirection={{ base: "column", xl: "row" }}
+          pt={"2rem"}
         >
           <Button
             variant={"ghost"}

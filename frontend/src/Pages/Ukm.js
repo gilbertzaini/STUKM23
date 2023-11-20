@@ -6,9 +6,7 @@ import Footer from "../components/Footer";
 const Ukm = () => {
   return (
     <div>
-      <Navbar />
       <UkmPage />
-      <Footer />
     </div>
   );
 };

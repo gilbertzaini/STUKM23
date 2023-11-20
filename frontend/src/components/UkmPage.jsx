@@ -62,7 +62,7 @@ const UkmPage = () => {
   }, []);
 
   return (
-    <Box mt={"100px"}>
+    <Box mt={'2rem'}>
       <Box className="observed">
         <Flex
           width={"75vw"}
@@ -134,8 +134,9 @@ const UkmPage = () => {
           </Box>
         ))}
       </Grid>
-      <Box my={10}></Box>
+      <Box my={'1rem'}></Box>
     </Box>
+    
   );
 };
 

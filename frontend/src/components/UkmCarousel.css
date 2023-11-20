@@ -1,0 +1,7 @@
+.imageCarousel {
+    border-radius: 15px;
+    height: 70vh;
+    width: 72vw;
+    margin: auto;
+    object-fit: cover;
+}

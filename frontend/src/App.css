@@ -10,15 +10,11 @@
   font-style: normal;
 }
 
-/* #app::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.gradientBg {
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #884a39 16.77%, #f9e0bb 100%);
-} */
+}
 
 #app {
   font-family: "El Messiri" !important;

@@ -37,7 +37,7 @@ function Logo() {
 
   return (
     <div class="logo">
-      <div class="logoSection observed">
+      <div class="logoSection observed gradientBg">
         <div class="logoAtas">
           <img src={STUKM23} />
         </div>

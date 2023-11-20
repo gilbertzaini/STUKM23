@@ -2,7 +2,7 @@
     box-sizing: border-box;
     display: flex;
     gap: 25px;
-    padding: 25px 25px;
+    padding: 20px 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
     display: flex;
     flex-direction: row;
     gap: 25px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .sosmed img {
@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: row;
     gap: 25px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .cp img{
@@ -84,7 +84,168 @@
 }
 
 .copyright{
+    padding-top: 10px;
     font-size: 32px;
-
+    margin-left: auto;
+    margin-right: auto;
 }
+
+@media(max-width:980px){
+    .wrapper{
+        gap: 250px;
+    }
+}
+
+@media(max-width:980px){
+    .footer{
+        padding: 30px 30px;
+    }
+    .wrapper{
+        gap: 225px;
+    }
+}
+
+@media(max-width:760px){
+    .contact h4{
+        font-size: 28px;
+    }
+
+    .be-our-sponsor h4{
+        font-size: 28px;
+    }
+
+    .footer{
+        padding: 30px 30px;
+    }
+
+    .wrapper{
+        gap: 185px;
+    }
+
+    .copyright{
+        font-size: 28px;
+    }
+}
+
+@media(max-width:680px){
+    .sosmed img {
+        width: 25px;
+    }
+
+    .cp img{
+        width: 25px;
+    }
+
+    .cp a{
+        font-size: small;
+    }
+
+    .wrapper{
+        gap: 165px;
+    }
+
+    .copyright{
+        font-size: 24px;
+    }
+}
+
+@media(max-width:635px){
+    .contact h4{
+        font-size: 24px;
+    }
+
+    .be-our-sponsor h4{
+        font-size: 24px;
+    }
+
+    .wrapper{
+        gap: 135px;
+    }
+
+    .copyright{
+        font-size: 24px;
+    }
+}
+
+@media(max-width:590px){
+    .sosmed a {
+        font-size: 14px;
+    }
+
+    .cp a{
+        font-size: 14px;
+    }
+
+    .wrapper{
+        gap: 100px;
+    }
+
+    .copyright{
+        font-size: 20px;
+    }
+}
+
+@media(max-width:530px){
+    .sosmed a {
+        font-size: 12.5px;
+    }
+
+    .sosmed img {
+        width: 20px;
+    }
+
+    .cp img{
+        width: 20px;
+    }
+
+    .cp a{
+        font-size: 12.5px;
+    }
+
+    .wrapper{
+        gap: 85px;
+    }
+}
+
+@media(max-width:435px){
+    .footer{
+        padding: 12px 12px;
+    }
+    .contact h4{
+        font-size: 18px;
+    }
+
+    .be-our-sponsor h4{
+        font-size: 18px;
+    }
+
+    .sosmed a {
+        font-size: 11px;
+    }
+
+    .sosmed img {
+        width: 18px;
+    }
+
+    .cp img{
+        width: 18px;
+    }
+
+    .cp a{
+        font-size: 11px;
+    }
+
+    .wrapper{
+        gap: 50px;
+    }
+
+    .copyright{
+        font-size: 16px;
+    }
+}
+
+
+
+
+
 

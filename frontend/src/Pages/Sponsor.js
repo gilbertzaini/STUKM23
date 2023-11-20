@@ -11,7 +11,6 @@ const Sponsor = () => {
 
   return (
     <>
-    <Navbar/>
       {/* <div class="observed"> */}
         <div class="container">
           <div class="title">
@@ -25,7 +24,6 @@ const Sponsor = () => {
           </div>
         </div>
       {/* </div> */}
-        <Footer/>
     </>
   );
 };

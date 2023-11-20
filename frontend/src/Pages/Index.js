@@ -7,10 +7,8 @@ import Footer from "../components/Footer";
 const Index = () => {
   return (
     <>
-    <Navbar/>
-    <Logo/>
-    <VotingForm/>
-    <Footer />
+    <Logo />
+    <VotingForm id="votingForm"/>
     </>
   )
 }

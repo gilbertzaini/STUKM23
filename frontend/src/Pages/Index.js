@@ -7,15 +7,8 @@ import Footer from "../components/Footer";
 const Index = () => {
   return (
     <>
-<<<<<<< Updated upstream
-    <Navbar/>
-    <Logo/>
-    <VotingForm/>
-    <Footer />
-=======
     <Logo />
     <VotingForm id="votingForm"/>
->>>>>>> Stashed changes
     </>
   )
 }

@@ -44,7 +44,7 @@ export const fieldList = [
       label: "UKM",
       type: "text",
       name: "ukm",
-      placeholder: "Masukkan UKM yang diikuti *jika ada",
+      // placeholder: "Masukkan UKM yang diikuti *jika ada",
       required: false,
     },
     {

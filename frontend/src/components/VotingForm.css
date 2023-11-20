@@ -141,3 +141,23 @@
   width: 65vw; */
   color: var(--secondary);
 }
+
+.trompet {
+  position: absolute;
+  bottom: 5vw;
+  z-index: 3;
+  height: 60vh;
+  width: auto;
+}
+
+.trompetKiri {
+  left: 0;
+  transform: scaleX(-1) rotate(25deg);
+  margin-left: -13vw;
+}
+
+.trompetKanan {
+  right: 0;
+  margin-right: -13vw;
+  transform: rotate(25deg);
+}

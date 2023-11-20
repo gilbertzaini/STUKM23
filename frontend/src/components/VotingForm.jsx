@@ -14,6 +14,7 @@ import { fieldList } from "../data/votingFieldList";
 import { ukmList } from "../data/ukm";
 import axios from "axios";
 import back from "../assets/logo/back.svg";
+import trompet from "../assets/image/trompet.png"
 
 const VotingForm = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -350,14 +351,16 @@ const VotingForm = () => {
   }, [loggedInUser]);
 
   return (
-    <Flex className="observed" justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
-      <Box id="votingForm" mt={"-5%"} display={loggedIn ? "none" : "block"}>
+    <Flex className="observed" pos={"relative"} justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
+      <Image display={{base: "none", xl: "block"}} className="trompet trompetKiri" src={trompet}/>
+      <Image display={{base: "none", xl: "block"}} className="trompet trompetKanan" src={trompet}/>
+      <Box id="votingForm" mt={"-5%"} pt={5} display={loggedIn ? "none" : "block"}>
         <Heading
           className="votingHeading"
           py={3}
           fontSize={{ base: "3vh", xl: "6vh" }}
         >
-          Who is the best?
+          Vote Your Best UKM!
         </Heading>
         <form onSubmit={handleVote}>
           <Flex
@@ -368,7 +371,7 @@ const VotingForm = () => {
               base: "35rem",
               sm: orientation ? "30rem" : "20rem",
               lg: "65vh",
-              xl: "75vh",
+              xl: "73vh",
             }}
             w={{ base: "80vw", xl: "65vw" }}
           >

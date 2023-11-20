@@ -8,14 +8,9 @@ import Footer from './components/Footer';
 import Sponsor from "./Pages/Sponsor";
 import Index from "./Pages/Index";
 import Ukm from "./Pages/Ukm";
-import { Observer } from "./helper/observer";
-import { useEffect } from "react";
 // IMMPORT MEDPAR PAGE DISINI
 
 function App() {
-  useEffect(() => {
-    Observer();
-  }, []);
 
   return (
     <ChakraProvider>

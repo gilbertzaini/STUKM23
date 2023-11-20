@@ -12,7 +12,7 @@
     align-items: center;
 }
 .logoAtas img {
-    margin-top: 100px !important;
+    margin-top: 150px !important;
     max-width: 200px;
     max-height: 200px;
     margin: auto;
@@ -174,4 +174,19 @@
     .atasBox p {
         font-size: 28px;
     }
+}
+
+.gorden {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: auto;
+}
+
+.gordenKiri {
+    left: 0;
+}
+
+.gordenKanan {
+    right: 0;
 }

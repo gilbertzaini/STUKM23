@@ -1,5 +1,9 @@
 .navbar{
-    background: #884a39 16.77%
+    background-image: linear-gradient(#884A39, #b56650);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
 }
 
 .navbar-pembungkus{

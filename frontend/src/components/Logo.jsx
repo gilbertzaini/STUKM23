@@ -3,6 +3,8 @@ import STUKM23 from "../assets/logo/STUKM23.png";
 import nextButton from "../assets/image/NextButton.png";
 import prevButton from "../assets/image/PrevButton.png";
 import React, { useState } from "react";
+import gordenKanan from "../assets/image/gorden_kanan.png";
+import gordenKiri from "../assets/image/gorden_kiri.png";
 
 function Logo() {
   const [judulMakna, setJudulMakna] = useState(0);
@@ -38,6 +40,8 @@ function Logo() {
   return (
     <div class="logo">
       <div class="logoSection observed gradientBg">
+      <img className="gorden gordenKiri" src={gordenKiri} />
+      <img className="gorden gordenKanan" src={gordenKanan} />
         <div class="logoAtas">
           <img src={STUKM23} />
         </div>

@@ -109,10 +109,11 @@ const UkmPage = () => {
           </Button>
         </Flex>
 
-        <UkmCarousel />
+        <UkmCarousel ukmType={ukm} />
       </Box>
 
-      <Grid className="observed"
+      <Grid
+        className="observed"
         templateColumns={{
           base: "repeat(2, 1fr)",
           md: "repeat(3, 1fr)",

@@ -2,12 +2,12 @@
     background-image: linear-gradient(#884A39, #b56650);
 }
 
-.container{
+.navbar-pembungkus{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 10px;
     /* margin: 24px 240px; */
 }
@@ -42,15 +42,19 @@
 }
 
 
-.box-option{
+.box-option-navbar{
     position: relative;
     display: flex;
     font-size: 32px;
-    gap: 20px;
+    gap: 30px;
     margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: auto;
+    padding-bottom: auto;
 }
 
-.nav-vote{
+.navbar-vote{
     font-family: "El Messiri" !important;
     color: #F9E0BB;
     text-align: right;
@@ -58,9 +62,10 @@
     font-weight: 400;
     line-height: normal;
     margin: auto;
+    cursor:pointer;
 }
 
-.nav-ukm {
+.navbar-ukm {
     font-family: "El Messiri" !important;
     color: #F9E0BB;
     text-align: right;
@@ -69,7 +74,7 @@
     line-height: normal;
 }
 
-.nav-sponsor{
+.navbar-sponsor{
     font-family: "El Messiri" !important;
     color: #F9E0BB;
     text-align: right;
@@ -78,7 +83,7 @@
     line-height: normal;
 }
 
-.nav-medpar{
+.navbar-medpar{
     font-family: "El Messiri" !important;
     color: #F9E0BB;
     text-align: right;
@@ -86,5 +91,101 @@
     font-weight: 400;
     line-height: normal;
 }
+
+@media(max-width:950px){
+    .text-stukm{
+        font-size: 24px;
+    }
+
+    .box-option-navbar{
+        font-size: 24px;
+    }
+}
+
+@media(max-width:750px){
+    .text-stukm{
+        font-size: 20px;
+    }
+
+    .box-option-navbar{
+        font-size: 20px;
+    }
+}
+
+@media(max-width:680px){
+    .logo-stukm{
+        width: 45px;
+        height: 45px;
+    }
+
+    .text-stukm{
+        font-size: 16px;
+    }
+
+    .box-option-navbar{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:560px){
+    .box-logo{
+        gap: 15px;
+    }
+
+    .logo-stukm{
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-stukm{
+        font-size: 16px;
+    }
+
+    .box-option-navbar{
+        font-size: 16px;
+        gap: 15px;
+    }
+}
+
+@media(max-width:440px){
+    .box-logo{
+        gap: 10px;
+    }
+
+    .logo-stukm{
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-stukm{
+        font-size: 14px;
+    }
+
+    .box-option-navbar{
+        font-size: 14px;
+        gap: 10px;
+    }
+}
+
+@media(max-width:376px){
+    .box-logo{
+        gap: 10px;
+    }
+
+    .logo-stukm{
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-stukm{
+        font-size: 12px;
+    }
+
+    .box-option-navbar{
+        font-size: 12px;
+        gap: 8px;
+    }
+}
+
 
 

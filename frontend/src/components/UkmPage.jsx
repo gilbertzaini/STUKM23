@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Flex, Spacer } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
-import { Grid, GridItem } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { ukmList } from "../data/ukm";
 import UkmCard from "./UkmCard";
@@ -66,18 +65,20 @@ const UkmPage = () => {
 
   return (
     <Box>
-      <Box className="observed gradientBg" py={{base:'5rem', xl:'4rem'}}>
-        <Image src={gorden_kiri} top={0} height={'100vh'} left={0} position={'absolute'} />
-        <Image src={gorden_kanan} top={0} height={'100vh'} right={0} position={'absolute'} />
+      <Box className="observed gradientBg" py={{ base: '5rem', xl: '4rem' }}>
+        <Image src={gorden_kiri} top={0} height={'100vh'} left={0} position={'absolute'} draggable={false}/>
+        <Image src={gorden_kanan} top={0} height={'100vh'} right={0} position={'absolute'} draggable={false}/>
         <Flex
           width={"60vw"}
           mx={"auto"}
           flexDirection={{ base: "column", xl: "row" }}
-          gap={{md: 4}}
+          gap={{ md: 4 }}
         >
           <Button
             variant={"ghost"}
-            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
+            textColor={"var(--primary)"}
+            fontWeight={'normal'}
+            fontSize={{ base: '1.5rem', md: '2.5rem', xl: "2rem" }}
             textDecoration={ukm === "senbud" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -90,7 +91,9 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
+            textColor={"var(--primary)"}
+            fontWeight={'normal'}
+            fontSize={{ base: '1.5rem', md: '2.5rem', xl: "2rem" }}
             textDecoration={ukm === "olahraga" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -103,7 +106,9 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
+            textColor={"var(--primary)"}
+            fontWeight={'normal'}
+            fontSize={{ base: '1.5rem', md: '2.5rem', xl: "2rem" }}
             textDecoration={ukm === "sainsos" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -118,18 +123,15 @@ const UkmPage = () => {
         <UkmCarousel ukmType={ukm} />
       </Box>
 
-      <Grid
+      <Flex
         className="observed"
-        templateColumns={{
-          base: "repeat(2, 1fr)",
-          md: "repeat(3, 1fr)",
-          xl: "repeat(5, 1fr)",
-        }}
         gap={6}
-        mx={{ base: 10, lg: 20 }}
+        flexWrap={'wrap'}
+        justifyContent={"center"}
+        alignItems={"center"}
       >
         {ukmCard.map((ukm) => (
-          <GridItem>
+          <Box width={{base: '40%', md:'27.5%', xl:'17.5%'}}>
             <UkmCard
               key={ukm.name}
               name={ukm.name}
@@ -137,9 +139,9 @@ const UkmPage = () => {
               instagram={ukm.instagram}
               instagram_user={ukm.instagram_user}
             />
-          </GridItem>
+          </Box>
         ))}
-      </Grid>
+      </Flex>
       <Box my={'1rem'}></Box>
     </Box>
 

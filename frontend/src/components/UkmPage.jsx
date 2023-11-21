@@ -66,18 +66,18 @@ const UkmPage = () => {
 
   return (
     <Box>
-      <Box className="observed gradientBg">
+      <Box className="observed gradientBg" py={{base:'5rem', xl:'4rem'}}>
         <Image src={gorden_kiri} top={0} height={'100vh'} left={0} position={'absolute'} />
         <Image src={gorden_kanan} top={0} height={'100vh'} right={0} position={'absolute'} />
         <Flex
           width={"60vw"}
           mx={"auto"}
           flexDirection={{ base: "column", xl: "row" }}
-          pt={"2rem"}
+          gap={{md: 4}}
         >
           <Button
             variant={"ghost"}
-            fontSize={{base:'1rem', md: "2rem"}}
+            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
             textDecoration={ukm === "senbud" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -90,7 +90,7 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={{base:'1rem', md: "2rem"}}
+            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
             textDecoration={ukm === "olahraga" ? "underline" : "none"}
             _hover={{
               background: "transparent",
@@ -103,7 +103,7 @@ const UkmPage = () => {
           <Spacer />
           <Button
             variant={"ghost"}
-            fontSize={{base:'1rem', md: "2rem"}}
+            fontSize={{base:'1.5rem', md:'2.5rem', xl: "2rem"}}
             textDecoration={ukm === "sainsos" ? "underline" : "none"}
             _hover={{
               background: "transparent",

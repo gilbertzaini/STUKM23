@@ -12,7 +12,7 @@ const UkmCarousel = (props) => {
   return (
     <Flex
       mx={'auto'}
-      width={{ base: "50vw", md: "60vw", xl: "70vw" }}
+      width={{ base: "50vw", md: "67vw", xl: "70vw" }}
       height={{ base: "50vh", md: "60vh", xl: "70vh" }}
       my={'2rem'}
     >

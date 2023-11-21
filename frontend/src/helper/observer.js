@@ -9,7 +9,7 @@ export const Observer = () => {
       });
     },
     {
-      threshold: 0.5,
+      threshold: 0.3,
     }
   );
 

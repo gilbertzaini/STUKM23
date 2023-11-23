@@ -53,7 +53,7 @@ const VotingForm = () => {
 
   const getLoggedInUser = async () => {
     try {
-      const response = await axios.get("http://localhost:8888/logged-in-user");
+      const response = await axios.get("https://api.stukmumn.com/logged-in-user");
       // console.log(response.data);
       setLoggedInUser(response.data);
       setLoggedIn(true);
@@ -284,7 +284,7 @@ const VotingForm = () => {
 
     try {
       if (senbud !== "") {
-        await axios.post("http://localhost:8888/vote", {
+        await axios.post("https://api.stukmumn.com/vote", {
           nim,
           // email,
           nama,

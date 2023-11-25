@@ -1,4 +1,5 @@
 import "./Teaser.css";
+import pillar from "../assets/image/pillar.png";
 
 function Teaser() {
     return (
@@ -17,6 +18,8 @@ function Teaser() {
                     title="Embedded Instagram Post"
                 ></iframe>
             </div>
+            <img className="pillar pillarKiri" src={pillar} />
+            <img className="pillar pillarKanan" src={pillar} />
         </div>
     )
 }

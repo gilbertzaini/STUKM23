@@ -26,6 +26,23 @@
     margin-bottom: 50px;
 }
 
+.pillar {
+    position: absolute;
+    height: 100vh;
+    width: auto;
+    z-index: 1;
+}
+
+.pillarKiri {
+    left: 0;
+    bottom: 162px;
+}
+
+.pillarKanan {
+    right: 0;
+    bottom: 162px;
+}
+
 @media screen and (max-width: 768px) {
     .teaserVideo {
         display: flex;
@@ -34,5 +51,9 @@
         max-width: 90%;
         height: auto;
         overflow: hidden;
+    }
+
+    .pillar {
+        display: none;
     }
 }

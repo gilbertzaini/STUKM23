@@ -3,6 +3,7 @@ import VotingForm from "../components/VotingForm";
 import Logo from "../components/Logo";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Teaser from "../components/Teaser";
 import { Observer } from "../helper/observer";
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
     <>
       <Logo />
       <VotingForm id="votingForm" />
+      <Teaser />
     </>
   );
 };

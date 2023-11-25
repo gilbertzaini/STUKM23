@@ -13,7 +13,7 @@ const UkmCard = (props) => {
       <Card
         className='containerCard'
         height={{ base: "30vh", md: "28vh", xl: "48vh" }}
-        backgroundColor={'#FFC26F'}
+        backgroundColor={'#F9E0BB'}
         boxShadow={'lg'}
         border={'1px'}
       >
@@ -29,6 +29,7 @@ const UkmCard = (props) => {
         <Box
           className='cardBack'
           height={'100%'}
+          backgroundColor={'#884a39'}
         >
           <Box
             position={'absolute'}
@@ -39,7 +40,7 @@ const UkmCard = (props) => {
               size={{ base: "xs", lg: "md" }}
               my={5}
               mx={3}
-              color={'#81653C'}
+              color={'white'}
               fontFamily={'El Messiri'}
             >
               {props.name}
@@ -51,10 +52,10 @@ const UkmCard = (props) => {
             top={{ base: '40%', md: '30%' }}
             width={'100%'}
           >
-            <Text color={'#81653C'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>Ketua</Text>
-            <Text color={'#81653C'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>???</Text>
-            <Text color={'#81653C'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>Wakil Ketua</Text>
-            <Text color={'#81653C'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>???</Text>
+            <Text color={'white'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>Ketua</Text>
+            <Text color={'white'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>???</Text>
+            <Text color={'white'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>Wakil Ketua</Text>
+            <Text color={'white'} fontSize={{ base: "0.8rem", md: "1.5rem", xl: "1.2rem" }}>???</Text>
           </Box>
 
           <Box
@@ -70,7 +71,7 @@ const UkmCard = (props) => {
               width={'2rem'}
               draggable={false}
             />
-            <Link href={props.instagram} isExternal color={'#81653C'}>
+            <Link href={props.instagram} isExternal color={'white'}>
               {props.instagram_user}
             </Link>
           </Box>

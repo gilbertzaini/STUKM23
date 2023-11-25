@@ -62,7 +62,7 @@ const UkmCarousel = (props) => {
               objectFit={'cover'}
               borderRadius={'15px'}
             className='imageCarousel'
-            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga3 : props.ukmType === 'senbud' ? ukmActivity.Senbud3 : ukmActivity.Sainsos2}
+            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga3 : props.ukmType === 'senbud' ? ukmActivity.Senbud3 : ukmActivity.Sainsos3}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -73,7 +73,7 @@ const UkmCarousel = (props) => {
               objectFit={'cover'}
               borderRadius={'15px'}
             className='imageCarousel'
-            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga4 : props.ukmType === 'senbud' ? ukmActivity.Senbud4 : ukmActivity.Sainsos2}
+            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga4 : props.ukmType === 'senbud' ? ukmActivity.Senbud4 : ukmActivity.Sainsos4}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -84,7 +84,7 @@ const UkmCarousel = (props) => {
               objectFit={'cover'}
               borderRadius={'15px'}
             className='imageCarousel'
-            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga5 : props.ukmType === 'senbud' ? ukmActivity.Senbud5 : ukmActivity.Sainsos2}
+            src={props.ukmType === 'olahraga' ? ukmActivity.Olahraga5 : props.ukmType === 'senbud' ? ukmActivity.Senbud5 : ukmActivity.Sainsos5}
           />
         </SwiperSlide>
       </Swiper>

@@ -129,6 +129,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .text p {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
     .logoMakna {
         flex-direction: column;
         align-items: center;

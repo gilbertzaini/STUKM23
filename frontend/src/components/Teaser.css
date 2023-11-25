@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'El-Messiri';
+    src: url('../assets/font/el-messiri.regular.ttf') format('truetype');
+}
+
+.teaserPage {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.teaserTitle h1 {
+    justify-content: center;
+    text-align: center;
+    color: #884a39;
+    font-weight: bolder;
+    font-size: 45px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.teaserVideo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .teaserVideo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        max-width: 90%;
+        height: auto;
+        overflow: hidden;
+    }
+}

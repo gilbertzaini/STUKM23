@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://rest-apis.stukmumn.com",
+  "proxy": "https://rest-apis.stukmumn.com/",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",

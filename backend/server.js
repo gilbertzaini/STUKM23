@@ -18,7 +18,7 @@ const store = new sessionStore({
 app.use(
   cors({
     credentials: true,
-    origin: '*',
+    origin: 'https://stukmumn.com/',
   })
 );
 

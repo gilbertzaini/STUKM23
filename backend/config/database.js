@@ -1,8 +1,8 @@
-import { Sequelize } from "sequelize";
+const { Sequelize } = require("sequelize");
 
-const db = new Sequelize('stukm23', 'root', '', {
-    host: 'localhost',
+const db = new Sequelize('mlbakipg_stukm23', 'mlbakipg_admin', 'admSTUKM23', {
+    host: 'api.stukmumn.com',
     dialect: 'mysql'
 });
 
-export default db;
+module.exports = db;

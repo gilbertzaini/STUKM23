@@ -14,7 +14,7 @@ import { fieldList } from "../data/votingFieldList";
 import { ukmList } from "../data/ukm";
 import axios from "axios";
 import back from "../assets/logo/back.svg";
-import trompet from "../assets/image/trompet.png"
+import trompet from "../assets/image/trompet.png";
 
 const VotingForm = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -50,10 +50,13 @@ const VotingForm = () => {
 
   // const emailRegex = /^[^\s@]+@student\.umn\.ac\.id$/;
   const nimRegex = /^000000\d{5}$|^00000\d{6}$/;
+  const angkatanRegex = /^(2017|2018|2019|2020|2021|2022|2023)$/;
 
   const getLoggedInUser = async () => {
     try {
-      const response = await axios.get("https://api.stukmumn.com/logged-in-user");
+      const response = await axios.get(
+        "https://rest-apis.stukmumn.com/logged-in-user"
+      );
       // console.log(response.data);
       setLoggedInUser(response.data);
       setLoggedIn(true);
@@ -89,10 +92,10 @@ const VotingForm = () => {
       });
   }, []);
 
-  useEffect(() => {
-    if (orientation) console.log("potrait");
-    else console.log("landscape");
-  }, [orientation]);
+  // useEffect(() => {
+  //   if (orientation) console.log("potrait");
+  //   else console.log("landscape");
+  // }, [orientation]);
 
   fieldList.forEach((field) => {
     const item = (
@@ -131,9 +134,9 @@ const VotingForm = () => {
                 ? nama
                 : field.name === "nim"
                 ? nim
-                // : field.name === "email"
+                : // : field.name === "email"
                 // ? email
-                : field.name === "jurusan"
+                field.name === "jurusan"
                 ? jurusan
                 : field.name === "angkatan"
                 ? angkatan
@@ -144,15 +147,18 @@ const VotingForm = () => {
               if (field.name === "nama") setNama(value);
               else if (field.name === "nim") {
                 setNim(value);
-                if (nimRegex.test(value) || value === "") setNimCheck(true);
+                if (nimRegex.test(value)) setNimCheck(true);
                 else setNimCheck(false);
-              // } else if (field.name === "email") {
-              //   setEmail(value);
-              //   if (emailRegex.test(value) || value === "") setEmailCheck(true);
-              //   else setEmailCheck(false);
+                // } else if (field.name === "email") {
+                //   setEmail(value);
+                //   if (emailRegex.test(value) || value === "") setEmailCheck(true);
+                //   else setEmailCheck(false);
               } else if (field.name === "jurusan") setJurusan(value);
-              else if (field.name === "angkatan") setAngkatan(value);
-              else setUkm(value);
+              else if (field.name === "angkatan") {
+                setAngkatan(value);
+                if(angkatanRegex.test(value)) setAngkatanCheck(true);
+                else setAngkatanCheck(false);
+              } else setUkm(value);
             }}
             required={field.required}
             autoComplete="off"
@@ -275,6 +281,7 @@ const VotingForm = () => {
     setFlip(false);
     setPage(0);
     setNimCheck(false);
+    setAngkatanCheck(false);
     // setEmailCheck(false);
     // console.log("resetted");
   };
@@ -284,7 +291,7 @@ const VotingForm = () => {
 
     try {
       if (senbud !== "") {
-        await axios.post("https://api.stukmumn.com/vote", {
+        await axios.post("https://rest-apis.stukmumn.com/vote", {
           nim,
           // email,
           nama,
@@ -296,17 +303,17 @@ const VotingForm = () => {
           senbud,
         });
 
-        console.log(`
-          submitted:\n
-          Nama: ${nama}\n
-          NIM: ${nim}\n
-          Jurusan: ${jurusan}\n
-          Angkatan: ${angkatan}\n
-          UKM: ${ukm}\n
-          Olahraga: ${olahraga}\n
-          Sainsos: ${sainsos}\n
-          Senbud: ${senbud}
-          `);
+        // console.log(`
+        //   submitted:\n
+        //   Nama: ${nama}\n
+        //   NIM: ${nim}\n
+        //   Jurusan: ${jurusan}\n
+        //   Angkatan: ${angkatan}\n
+        //   UKM: ${ukm}\n
+        //   Olahraga: ${olahraga}\n
+        //   Sainsos: ${sainsos}\n
+        //   Senbud: ${senbud}
+        //   `);
 
         toggleFlip();
         resetState();
@@ -314,47 +321,67 @@ const VotingForm = () => {
           getLoggedInUser();
         }, 100);
       } else {
-        console.log("isi dlu bg");
+        // console.log("isi dlu bg");
       }
     } catch (e) {
       console.log(e);
     }
   };
 
-  useEffect(() => {
-    console.log(
-      `Nama: ${nama}\n
-      NIM: ${nim}\n
-      Jurusan: ${jurusan}\n
-      Angkatan: ${angkatan}\n
-      UKM: ${ukm}
-      `
-    );
-  }, [nama, nim, jurusan, angkatan, ukm]);
+  // useEffect(() => {
+  //   console.log(
+  //     `Nama: ${nama}\n
+  //     NIM: ${nim}\n
+  //     Jurusan: ${jurusan}\n
+  //     Angkatan: ${angkatan}\n
+  //     UKM: ${ukm}
+  //     `
+  //   );
+  // }, [nama, nim, jurusan, angkatan, ukm]);
 
   useEffect(() => {
-    console.log(
-      `olahraga: ${olahraga}\n
-        sainsos: ${sainsos}\n
-        senbud: ${senbud}`
-    );
+    // console.log(
+    //   `olahraga: ${olahraga}\n
+    //     sainsos: ${sainsos}\n
+    //     senbud: ${senbud}`
+    // );
 
     getLoggedInUser();
   }, [olahraga, sainsos, senbud]);
 
-  useEffect(() => {
-    console.log(`Page: ${page}`);
-  }, [page]);
+  // useEffect(() => {
+  //   console.log(`Page: ${page}`);
+  // }, [page]);
 
-  useEffect(() => {
-    console.log(`loggedInUser: ${loggedInUser.userId} - ${loggedInUser.nama}`);
-  }, [loggedInUser]);
+  // useEffect(() => {
+  //   console.log(`loggedInUser: ${loggedInUser.userId} - ${loggedInUser.nama}`);
+  // }, [loggedInUser]);
 
   return (
-    <Flex className="observed" pos={"relative"} justify={"center"} align={"center"} h={"100vh"} overflow={"hidden"}>
-      <Image display={{base: "none", xl: "block"}} className="trompet trompetKiri" src={trompet}/>
-      <Image display={{base: "none", xl: "block"}} className="trompet trompetKanan" src={trompet}/>
-      <Box id="votingForm" mt={"-5%"} pt={5} display={loggedIn ? "none" : "block"}>
+    <Flex
+      className="observed"
+      pos={"relative"}
+      justify={"center"}
+      align={"center"}
+      h={"100vh"}
+      overflow={"hidden"}
+    >
+      <Image
+        display={{ base: "none", xl: "block" }}
+        className="trompet trompetKiri"
+        src={trompet}
+      />
+      <Image
+        display={{ base: "none", xl: "block" }}
+        className="trompet trompetKanan"
+        src={trompet}
+      />
+      <Box
+        id="votingForm"
+        mt={"-5%"}
+        pt={5}
+        display={loggedIn ? "none" : "block"}
+      >
         <Heading
           className="votingHeading"
           py={3}
@@ -402,7 +429,7 @@ const VotingForm = () => {
                       nama !== "" &&
                       nimCheck &&
                       // emailCheck &&
-                      angkatan !== "" &&
+                      angkatanCheck &&
                       jurusan !== ""
                         ? false
                         : true

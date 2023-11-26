@@ -23,24 +23,29 @@
 .teaserVideo {
     display: flex;
     justify-content: center;
+    margin: auto;
     margin-bottom: 50px;
+}
+
+.teaserVideo iframe {
+    z-index: 2;
 }
 
 .pillar {
     position: absolute;
-    height: 100vh;
+    height: 80vh;
     width: auto;
     z-index: 1;
 }
 
 .pillarKiri {
-    left: 0;
-    bottom: 162px;
+    left: 10%;
+    bottom: 9%;
 }
 
 .pillarKanan {
-    right: 0;
-    bottom: 162px;
+    right: 10%;
+    bottom: 9%;
 }
 
 @media screen and (max-width: 768px) {

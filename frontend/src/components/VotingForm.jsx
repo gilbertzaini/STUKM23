@@ -156,7 +156,7 @@ const VotingForm = () => {
               } else if (field.name === "jurusan") setJurusan(value);
               else if (field.name === "angkatan") {
                 setAngkatan(value);
-                if(angkatanRegex.test(value)) setAngkatanCheck(true);
+                if (angkatanRegex.test(value)) setAngkatanCheck(true);
                 else setAngkatanCheck(false);
               } else setUkm(value);
             }}
@@ -164,6 +164,12 @@ const VotingForm = () => {
             autoComplete="off"
           />
         </Flex>
+        <Text className="votingErr" display={field.name === "nim" && !nimCheck ? "block" : "none"}>
+          Format NIM(00000056145, 00000561455)
+        </Text>
+        <Text className="votingErr" display={field.name === "angkatan" && !angkatanCheck ? "block" : "none"}>
+          (2017, 2018, 2019, 2020, 2021, 2022, 2023)
+        </Text>
       </Flex>
     );
 

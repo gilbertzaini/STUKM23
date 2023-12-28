@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Observer } from "../helper/observer";
 import Teaser from "../components/Teaser";
+import VotingClosed from "../components/VotingClosed";
 
 const Index = () => {
   useEffect(() => {
@@ -17,7 +18,8 @@ const Index = () => {
   return (
     <>
       <Logo />
-      <VotingForm id="votingForm" />
+      {/* <VotingForm id="votingForm" /> */}
+      <VotingClosed/>
       {isFirefox ? null : <Teaser />}
       {/* <Teaser/> */}
     </>

@@ -20,7 +20,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="box-option-navbar">
-            {location.pathname === "/" && (
+            {/* {location.pathname === "/" && (
               <ScrollLink
                 className="navbar-vote"
                 to="votingForm"
@@ -31,7 +31,7 @@ const Navbar = () => {
               >
                 VOTE
               </ScrollLink>
-            )}
+            )} */}
             {/* <Link to="/#votingForm" className="navbar-vote">VOTE</Link> */}
             <Link to="/ukm" className="navbar-ukm">
               UKM

@@ -3,7 +3,7 @@ import pillar from "../assets/image/pillar.png";
 
 function Teaser() {
     return (
-        <div className="teaserPage">
+        <div className="teaserPage observed">
             <div className="teaserTitle">
                 <h1>Our Teaser</h1>
             </div>

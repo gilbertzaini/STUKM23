@@ -37,6 +37,17 @@ app.use(
   })
 );
 
+// Middleware to check if a session should be created
+app.use((req, res, next) => {
+  // Check if the user is already authenticated (e.g., has a userId in the session)
+  if (!req.session.userId) {
+    return next();
+  }
+
+  // If the user is authenticated, skip session creation
+  return res.status(200).json({ msg: "User is already authenticated" });
+});
+
 app.use(express.json());
 
 app.get("/", (req, res) => {

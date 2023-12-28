@@ -12,7 +12,7 @@ export const fieldList = [
       label: "NIM*",
       type: "text",
       name: "nim",
-      placeholder: "00000XXXXXX",
+      placeholder: "",
       required: true,
     },
     // {
